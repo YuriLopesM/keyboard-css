@@ -1,3 +1,3 @@
-# Literally, just for fun.
+# A keyboard with sounds and a little animation.
 
-**Keyboard (of course Gamer) with HTML, CSS and JS. Have fun!**
+CSS Keyboard **(of course Gamer)** with HTML, CSS and JS. Have fun!
