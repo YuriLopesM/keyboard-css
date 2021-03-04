@@ -1,0 +1,192 @@
+html,
+.content {
+    background-color: var(--primary);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+
+:root {
+    --darkKey: #2b2b2b;
+    --darkBg: #202020;
+    --darkClicked: #2a2a2a;
+
+    --black: black;
+    --white: #696969;
+
+
+    --darkText: #f1f1f1;
+    --lightText: #363636;
+
+    --lightKey: #ebebeb;
+    --lightBg: #cfcfcf;
+    --lightClicked: #c4c4c4;
+
+    --primary: var(--darkBg);
+    --secondary: var(--darkKey);
+    --clicked: var(--darkClicked);
+    --text: var(--darkText);
+
+    --shadow: var(--black)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.checkbox {
+    display: none;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background: var(--secondary);
+    border-radius: 5rem;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 5rem;
+    font-size: 1.5rem;
+    transition: background 0.5s ease;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.label .ball {
+    position: absolute;
+    background-color: var(--primary);
+    border-radius: 50%;
+    top: 0.25rem;
+    left: 0.25rem;
+    height: 2rem;
+    width: 2rem;
+    transform: translateX(0);
+    transition: transform 0.3s ease, background-color 0.5s ease;
+}
+
+.checkbox:checked+.content .label .ball {
+    transform: translateX(2.5rem);
+}
+
+.checkbox:checked+.content {
+    --primary: var(--lightBg);
+    --secondary: var(--lightKey);
+    --clicked: var(--lightClicked)
+    --text: var(--lightText);
+    --shadow: var(--white)
+}
+
+
+.content main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary);
+    padding: 10px;
+    box-shadow: 0px 20px 0px 0px var(--shadow);
+    z-index: 2;
+    animation: logAnimate 3s ease-in-out;
+    transition: all .4s;
+    border-radius: 15px;
+}
+
+.fio {
+    height: 200px;
+    width: 15px;
+    background-color: var(--secondary);
+    animation: logAnimate 4s ease-in-out;
+    transition: all .4s;
+}
+
+.content main section {
+    margin: 20px 0px;
+    animation: logAnimate 2s ease-in-out;
+    transition: all .4s;
+}
+
+.content main section span {
+    color: #696969;
+    font-family: DotGothic16;
+    font-size: 50pt;
+    padding: 5px 30px;
+    margin: 0px 10px;
+    background-color: var(--secondary);
+    box-shadow: 0px 7px 0px 0px var(--shadow);
+    border-radius: 5px;
+}
+
+
+.content main section div {
+    width: 600px;
+    height: 80px;
+    background-color: var(--secondary);
+    box-shadow: 0px 10px 0px 0px var(--shadow);
+    border-radius: 5px;
+}
+
+
+.content main section>span[data-pressed],
+.content main section>span:active {
+    background: var(--clicked);
+    color: #aaa;
+    position: relative;
+    top: 0.1em;
+    box-shadow: 0 0 0 0.05em black;
+}
+
+.content main section>div[data-pressed],
+.content main section>div:active {
+    background: --clicked;
+    color: #aaa;
+    position: relative;
+    top: 0.2em;
+    box-shadow: 0 0 0 0.05em black;
+}
+
+
+.content #rgb {
+    width: 63vw;
+    height: 57vh;
+    background-color: none;
+    z-index: 1;
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content .keyboardBackground {
+    filter: blur(25px);
+    background-size: 400% 400%;
+    background: linear-gradient(270deg, #e65252, #ec9607, #f3d52e, #5df755, #55f7d5, #28bff7, #2888f7, #8552ea, #ef65f0, #ee4f86);
+    animation: shineOpacity 4s;
+}
+
+@keyframes shineOpacity {
+    from {
+        opacity: 0;
+    } 
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes logAnimate {
+    0% {
+        transform: translateY(200px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
